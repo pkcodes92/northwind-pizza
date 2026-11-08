@@ -13,6 +13,6 @@ export class App implements OnInit {
   private readonly router = inject(Router);
 
   ngOnInit() {
-    this.router.navigateByUrl("/auth");
+    this.router.navigateByUrl("/");
   }
 }
