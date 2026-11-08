@@ -9,10 +9,6 @@ export const routes: Routes = [
         pathMatch: "full"
     },
     {
-        path: "auth",
-        component: Auth
-    },
-    {
         path: "home",
         component: Home
     }
