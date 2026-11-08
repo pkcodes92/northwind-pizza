@@ -1,1 +1,44 @@
-<router-outlet />
+<mat-sidenav-container class="shell">
+  <mat-sidenav
+    #sidenav
+    id="main-navigation"
+    [mode]="drawerMode"
+    [opened]="drawerOpened"
+    (openedChange)="drawerOpened = $event"
+    role="navigation"
+  >
+    <mat-nav-list aria-label="Main navigation">
+      @for (item of navigationItems; track item.route) {
+        <a
+          mat-list-item
+          [routerLink]="item.route"
+          routerLinkActive="active-link"
+          (click)="sidenav.close()"
+        >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="pizza-bar">
+      <button
+        mat-icon-button
+        type="button"
+        [attr.aria-label]="drawerOpened ? 'Close navigation menu' : 'Open navigation menu'"
+        [attr.aria-expanded]="drawerOpened"
+        aria-controls="main-navigation"
+        (click)="sidenav.toggle()"
+        class="menu">
+        <mat-icon>{{ drawerOpened ? "close" : "menu" }}</mat-icon>
+      </button>
+      <span>Northwind Pizza</span>
+    </mat-toolbar>
+
+    <main class="shell__main">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
