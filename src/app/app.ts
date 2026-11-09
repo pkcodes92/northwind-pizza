@@ -5,6 +5,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
+import { Header } from "./shared/header/header";
 
 interface NavigationItem {
   label: string;
@@ -16,27 +17,24 @@ interface NavigationItem {
   imports: [
     RouterOutlet,
     RouterLink,
-    RouterLinkActive, 
-    MatSidenavModule, 
-    MatToolbarModule, 
-    MatIconModule, 
-    MatButtonModule, 
-    MatListModule
+    RouterLinkActive,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    Header,
   ],
   selector: "app-root",
   styleUrls: ["./app.css"],
   templateUrl: "./app.html",
 })
 export class App {
-  protected readonly title = signal("northwind-pizza");
-
-  private readonly router = inject(Router);
-
   protected readonly navigationItems: NavigationItem[] = [
-    { label: "Home", route: "/home", icon: "home" }
-  ]
+    { label: "Home", route: "/home", icon: "home" },
+  ];
 
-  protected drawerMode: "over" | "side" = "over";
+  protected drawerMode: "over" | "side" = "side";
   protected drawerOpened = false;
 
   protected updateDrawerForViewport(isWide: boolean) {

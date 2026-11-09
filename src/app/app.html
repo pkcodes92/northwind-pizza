@@ -23,19 +23,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar class="pizza-bar">
-      <button
-        mat-icon-button
-        type="button"
-        [attr.aria-label]="drawerOpened ? 'Close navigation menu' : 'Open navigation menu'"
-        [attr.aria-expanded]="drawerOpened"
-        aria-controls="main-navigation"
-        (click)="sidenav.toggle()"
-        class="menu">
-        <mat-icon>{{ drawerOpened ? "close" : "menu" }}</mat-icon>
-      </button>
-      <span>Northwind Pizza</span>
-    </mat-toolbar>
+    <app-header [drawerOpened]="drawerOpened" [cartItemCount]="0" (menuToggle)="sidenav.toggle()" />
 
     <main class="shell__main">
       <router-outlet />

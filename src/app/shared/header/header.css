@@ -1,0 +1,24 @@
+.app-header mat-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--pizza-red) !important;
+    color: white;
+}
+
+.brand {
+    color: inherit;
+    text-decoration: none;
+}
+
+.cart-action {
+    margin-inline-start: auto;
+    color: white;
+}
+
+.menu {
+    color: white !important;
+}
+
+.menu:hover {
+    cursor: pointer;
+}
