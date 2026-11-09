@@ -5,7 +5,7 @@
                 aria-controls="main-navigation"
                 (click)="menuToggle.emit()">
 
-            <mat-icon class="menu">{{drawerOpened ? "close" : "menu"}}</mat-icon>
+            <mat-icon class="menu" [matTooltip]="!drawerOpened ? 'Open' : 'Close'">{{drawerOpened ? "close" : "menu"}}</mat-icon>
         </button>
 
         <a class="brand" routerLink="/home">Northwind Pizza</a>
@@ -17,8 +17,9 @@
             [attr.aria-label]="cartLabel"
             [matBadge]="cartItemCount"
             [matBadgeHidden]="cartItemCount === 0"
-            matBadgeColor="warn"
-            matBadgeSize="small">
+            matBadgeColor="primary"
+            matBadgeSize="small"
+            matTooltip="Shopping Cart">
             <mat-icon>shopping_cart</mat-icon>
         </a>
     </mat-toolbar>

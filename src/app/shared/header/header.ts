@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { RouterLink } from "@angular/router";
+
 import { MatBadgeModule } from "@angular/material/badge";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { RouterLink } from "@angular/router";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @Component({
   imports: [
@@ -11,7 +13,8 @@ import { RouterLink } from "@angular/router";
     MatBadgeModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTooltipModule,
   ],
   selector: "app-header",
   styleUrl: "./header.css",
