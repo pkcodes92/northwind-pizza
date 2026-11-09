@@ -1,0 +1,25 @@
+<header class="app-header">
+    <mat-toolbar>
+        <button mat-icon-button type="button" [attr.aria-label]="menuLabel"
+                [attr.aria-expanded]="drawerOpened"
+                aria-controls="main-navigation"
+                (click)="menuToggle.emit()">
+
+            <mat-icon class="menu">{{drawerOpened ? "close" : "menu"}}</mat-icon>
+        </button>
+
+        <a class="brand" routerLink="/home">Northwind Pizza</a>
+
+        <a
+            class="cart-action"
+            mat-icon-button
+            routerLink="/cart"
+            [attr.aria-label]="cartLabel"
+            [matBadge]="cartItemCount"
+            [matBadgeHidden]="cartItemCount === 0"
+            matBadgeColor="warn"
+            matBadgeSize="small">
+            <mat-icon>shopping_cart</mat-icon>
+        </a>
+    </mat-toolbar>
+</header>
