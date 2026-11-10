@@ -1,9 +1,7 @@
-import { computed, Injectable, signal } from "@angular/core";
+import { computed, Service, signal } from "@angular/core";
 import { CartItem } from "../dto/models";
 
-@Injectable({
-  providedIn: "root",
-})
+@Service()
 export class CartService {
   private readonly items = signal<CartItem[]>([]);
 
