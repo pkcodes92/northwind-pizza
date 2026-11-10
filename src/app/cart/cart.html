@@ -1,1 +1,36 @@
-<p>cart works!</p>
+<h1>Your Shopping Cart</h1>
+
+@if (cartService.cartItems().length === 0) {
+    <p>Your cart is empty.</p>
+    <p>Visit our menu to add your favorite pizzas!</p>
+} @else {
+    @for (item of cartService.cartItems(); track item.pizzaId) {
+        <section class="cart-item">
+            <h3>{{item.name}}</h3>
+            <p>{{ item.unitPrice | currency:"USD"}} each</p>
+
+            <button mat-icon-button aria-label="Decrease quantity" (click)="decreaseQuantity(item)">
+                <mat-icon>remove</mat-icon>
+            </button>
+
+            <span>{{ item.quantity }}</span>
+
+            <button mat-icon-button aria-label="Increase quantity" (click)="increaseQuantity(item)">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <p>
+                Subtotal: 
+                {{ item.unitPrice * item.quantity | currency: "USD"}}
+            </p>
+
+            <button mat-button color="warn" (click)="removeItem(item)">Remove</button>
+        </section>
+    }
+
+    <h2>Total: {{ cartService.totalPrice() | currency:"USD" }}</h2>
+
+    <button mat-button color="warn" (click)="clearCart()">Clear Cart</button>
+
+    <button mat-raised-button color="primary">Proceed to Checkout</button>
+}

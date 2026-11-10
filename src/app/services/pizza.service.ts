@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable, Service } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { GetPizzasResponse } from "../dto/response";
 import { catchError, Observable } from "rxjs";
 import { environment } from "../../environments/environment.development";
