@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { RouterLink } from "@angular/router";
 
 import { MatBadgeModule } from "@angular/material/badge";
@@ -6,6 +6,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
+import { CartService } from "../../services";
 
 @Component({
   imports: [
@@ -22,15 +23,16 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 })
 export class Header {
   @Input() drawerOpened = false;
-  @Input() cartItemCount = 0;
   @Output() menuToggle = new EventEmitter<void>();
+
+  readonly cartService = inject(CartService);
 
   get menuLabel(): string {
     return this.drawerOpened ? "Close navigation menu" : "Open navigation menu";
   }
 
   get cartLabel(): string {
-    const count = this.cartItemCount;
+    const count = this.cartService.itemCount();
     return `Shopping cart, ${count} ${count === 1 ? "item" : "items"}`;
   }
 }

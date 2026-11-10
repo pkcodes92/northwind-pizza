@@ -15,11 +15,11 @@
             mat-icon-button
             routerLink="/cart"
             [attr.aria-label]="cartLabel"
-            [matBadge]="cartItemCount"
-            [matBadgeHidden]="cartItemCount === 0"
-            matBadgeColor="primary"
+            [matBadge]="cartService.itemCount()"
+            [matBadgeHidden]="cartService.itemCount() === 0"
+            matBadgeColor="warn"
             matBadgeSize="small"
-            matTooltip="Shopping Cart">
+            matTooltip="View Your Cart">
             <mat-icon>shopping_cart</mat-icon>
         </a>
     </mat-toolbar>
