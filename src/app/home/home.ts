@@ -8,6 +8,7 @@ import { Pizza } from "../dto/models";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { CartService } from "../services";
 
 @Component({
   imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
@@ -17,6 +18,8 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class Home implements OnInit, OnDestroy {
   private readonly pizzaService = inject(PizzaService);
+
+  private readonly cartService = inject(CartService);
 
   private getPizzasSubscription!: Subscription;
 
@@ -49,6 +52,10 @@ export class Home implements OnInit, OnDestroy {
   }
 
   addToCart(pizza: Pizza) {
-    console.log("Add to cart clicked for pizza:", pizza);
+    this.cartService.addItem({
+      name: pizza.name,
+      pizzaId: pizza.id,
+      unitPrice: pizza.basePrice,
+    });
   }
 }

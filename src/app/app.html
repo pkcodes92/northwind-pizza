@@ -23,7 +23,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <app-header [drawerOpened]="drawerOpened" [cartItemCount]="0" (menuToggle)="sidenav.toggle()" />
+    <app-header [drawerOpened]="drawerOpened" (menuToggle)="sidenav.toggle()" />
 
     <main class="shell__main">
       <router-outlet />

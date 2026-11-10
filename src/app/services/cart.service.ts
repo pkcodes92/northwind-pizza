@@ -1,4 +1,4 @@
-import { computed, Injectable, Service, signal } from "@angular/core";
+import { computed, Service, signal } from "@angular/core";
 import { CartItem } from "../dto/models";
 
 @Service()
