@@ -7,23 +7,26 @@
     } @else {
     @for (item of cartService.cartItems(); track item.pizzaId) {
     <section class="cart-item">
-        <h3>{{item.name}}</h3>
-        <p>{{ item.unitPrice | currency:"USD"}} each</p>
+        <div class="cart-item-details">
+            <h3>{{item.name}}</h3>
+            <p>{{ item.unitPrice | currency:"USD"}} each</p>
+        </div>
     
-        <button mat-icon-button aria-label="Decrease quantity" (click)="decreaseQuantity(item)">
-            <mat-icon>remove</mat-icon>
-        </button>
+        <div class="cart-quantity">
+            <button mat-icon-button aria-label="Decrease quantity" (click)="decreaseQuantity(item)">
+                <mat-icon>remove</mat-icon>
+            </button>
+            
+            <span>{{ item.quantity }}</span>
+            
+            <button mat-icon-button aria-label="Increase quantity" (click)="increaseQuantity(item)">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
     
-        <span>{{ item.quantity }}</span>
-    
-        <button mat-icon-button aria-label="Increase quantity" (click)="increaseQuantity(item)">
-            <mat-icon>add</mat-icon>
-        </button>
-    
-        <p>
-            Subtotal:
+        <div class="cart-item-subtotal">
             {{ item.unitPrice * item.quantity | currency: "USD"}}
-        </p>
+        </div>
     
         <button mat-button color="warn" (click)="removeItem(item)">Remove</button>
     </section>

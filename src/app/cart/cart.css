@@ -1,0 +1,16 @@
+/* ========================
+Shopping Cart Container
+=========================== */
+.cart-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.cart-container h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
