@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Service } from "@angular/core";
-import { GetPizzasResponse } from "../dto/response";
-import { catchError, Observable } from "rxjs";
+import { ErrorResponse, GetPizzasResponse } from "../dto/response";
+import { catchError, Observable, throwError } from "rxjs";
 import { environment } from "../../environments/environment.development";
 
 @Service()
@@ -13,8 +13,8 @@ export class PizzaService {
   getPizzas(): Observable<GetPizzasResponse> {
     return this.httpClient.get<GetPizzasResponse>(`${this.apiUrl}/pizzas`).pipe(
       catchError((error) => {
-        console.error("Error fetching pizzas:", error);
-        throw error;
+        const errorRes = error.error as ErrorResponse;
+        return throwError(() => errorRes);
       }),
     );
   }

@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { inject, Service } from "@angular/core";
 import { environment } from "../../environments/environment.development";
 import { catchError, Observable, throwError } from "rxjs";
+import { ErrorResponse, GetCustomersResponse } from "../dto/response";
 
 @Service()
 export class CustomerService {
