@@ -1,0 +1,87 @@
+.menu-container {
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.menu-header {
+    margin-bottom: 32px;
+}
+
+.menu-header h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.menu-header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.pizza-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.pizza-image {
+    height: 190px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.pizza-card mat-card-content {
+    flex-grow: 1;
+    padding-top: 16px;
+}
+
+.pizza-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.pizza-description {
+    color: #666;
+    min-height: 48px;
+    line-height: 1.5;
+}
+
+.pizza-price {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.pizza-card mat-card-actions {
+    padding: 16px;
+}
+
+.status-message {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.error {
+    color: var(--pizza-red);
+}
+
+@media (max-width: 600px) {
+    .menu-container {
+        padding: 16px;
+    }
+
+    .menu-header h1 {
+        font-size: 24px;
+    }
+}
