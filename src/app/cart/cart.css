@@ -1,6 +1,7 @@
-/* ========================
-Shopping Cart Container
-=========================== */
+/* =========================================
+   Shopping Cart Container
+========================================= */
+
 .cart-container {
     max-width: 1000px;
     margin: 40px auto;
@@ -13,4 +14,225 @@ Shopping Cart Container
     font-weight: 600;
     color: #333;
     margin-bottom: 30px;
+}
+
+
+/* =========================================
+   Empty Cart
+========================================= */
+
+.cart-container>p {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.cart-container>p:first-of-type {
+    margin-top: 60px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* =========================================
+   Individual Cart Item
+========================================= */
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.cart-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+}
+
+
+/* =========================================
+   Cart Item Details
+========================================= */
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-details h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px;
+}
+
+.cart-item-details p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   Quantity Controls
+========================================= */
+
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-quantity button {
+    background-color: #f5f5f5;
+    border-radius: 50%;
+}
+
+.cart-quantity span {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   Item Subtotal
+========================================= */
+
+.cart-item-subtotal {
+    min-width: 110px;
+    text-align: right;
+}
+
+.cart-item-subtotal p {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0 0 5px;
+}
+
+.cart-item-subtotal strong {
+    font-size: 1.05rem;
+    color: #333;
+}
+
+
+/* =========================================
+   Remove Item Button
+========================================= */
+
+.cart-item button[mat-button] {
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   Cart Summary
+========================================= */
+
+.cart-summary {
+    margin-top: 30px;
+    border-top: 2px solid #e5e5e5;
+    padding-top: 15px;
+}
+
+.cart-summary h2 {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 10px 0 20px;
+}
+
+
+/* =========================================
+   Cart Actions
+========================================= */
+
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cart-actions button[mat-raised-button] {
+    background-color: #d32f2f;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 24px;
+    border-radius: 8px;
+}
+
+
+/* =========================================
+   Responsive Layout - Tablets
+========================================= */
+
+@media (max-width: 768px) {
+
+    .cart-container {
+        margin: 20px auto;
+        padding: 16px;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .cart-item-details {
+        flex-basis: 100%;
+    }
+
+    .cart-item-subtotal {
+        min-width: auto;
+    }
+
+    .cart-summary h2 {
+        font-size: 1.3rem;
+    }
+
+}
+
+
+/* =========================================
+   Responsive Layout - Mobile
+========================================= */
+
+@media (max-width: 480px) {
+
+    .cart-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .cart-item {
+        gap: 8px;
+    }
+
+    .cart-item-details {
+        flex-basis: 100%;
+    }
+
+    .cart-item-subtotal {
+        text-align: left;
+    }
+
+    .cart-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cart-actions button {
+        width: 100%;
+    }
 }

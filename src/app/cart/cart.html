@@ -25,17 +25,25 @@
         </div>
     
         <div class="cart-item-subtotal">
-            {{ item.unitPrice * item.quantity | currency: "USD"}}
+            <p>Subtotal</p>
+
+            <strong>
+                {{ item.unitPrice * item.quantity | currency: "USD"}}
+            </strong>
         </div>
     
         <button mat-button color="warn" (click)="removeItem(item)">Remove</button>
     </section>
     }
     
-    <h2>Total: {{ cartService.totalPrice() | currency:"USD" }}</h2>
-    
-    <button mat-button color="warn" (click)="clearCart()">Clear Cart</button>
-    
-    <button mat-raised-button color="primary">Proceed to Checkout</button>
+    <div class="cart-summary">
+        <h2>Total: {{ cartService.totalPrice() | currency:"USD" }}</h2>
+        
+        <div class="cart-actions">
+            <button mat-button color="warn" (click)="clearCart()">Clear Cart</button>
+            
+            <button mat-raised-button color="primary">Proceed to Checkout</button>
+        </div>
+    </div>
     }
 </div>
