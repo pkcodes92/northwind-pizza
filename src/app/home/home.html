@@ -1,1 +1,44 @@
-<p>home works!</p>
+<div class="menu-container">
+    @if (isLoading()) {
+        <div class="status-message">
+            <p>Loading deliciousness...</p>
+        </div>
+    }
+
+    @if (errorMessage()) {
+        <div class="status-message error">
+            <p>{{ errorMessage() }}</p>
+        </div>
+    }
+
+    @if (!isLoading() && !errorMessage() && pizzas.length === 0) {
+        <div class="status-message">
+            <p>No pizzas available at the moment. Please check back later!</p>
+        </div>
+    }
+    <div class="menu-header">
+        <h1>Menu</h1>
+        <p>Fresh ingredients. Delicious pizzas. Made just for you.</p>
+    </div>
+
+    <div class="pizza-grid">
+        @if (pizzas.length > 0 && !isLoading()) {
+            @for(pizza of pizzas; track pizza.id) {
+                <mat-card class="pizza-card">
+                    <img mat-card-image [src]="pizza.image" class="pizza-image" [alt]="pizza.name" />
+
+                <mat-card-content>
+                    <h2>{{ pizza.name }}</h2>
+                    <p class="pizza-description">{{ pizza.description }}</p>
+                    <div class="pizza-price">{{ pizza.basePrice | currency:'USD' }}</div>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-icon-button color="primary" (click)="addToCart(pizza)">
+                        <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        }
+    }
+</div>
