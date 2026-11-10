@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject, OnDestroy, OnInit } from "@angular/core";
+import { PizzaService } from "../services/pizza";
+import { Subscription } from "rxjs";
 
 @Component({
   imports: [],
@@ -6,4 +8,23 @@ import { Component } from "@angular/core";
   styleUrl: "./home.css",
   templateUrl: "./home.html",
 })
-export class Home {}
+export class Home implements OnInit, OnDestroy {
+  private readonly pizzaService = inject(PizzaService);
+
+  private getPizzasSubscription!: Subscription;
+
+  ngOnInit(): void {
+    this.getPizzasSubscription = this.pizzaService.getPizzas().subscribe({
+      next: (response) => {
+        console.log("Pizzas fetched successfully:", response.pizzas);
+      },
+      error: (error) => {
+        console.error("Error fetching pizzas:", error);
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.getPizzasSubscription?.unsubscribe();
+  }
+}
