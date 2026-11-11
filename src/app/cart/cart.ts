@@ -68,4 +68,9 @@ export class Cart implements OnInit {
   clearCart() {
     this.cartService.clearCart();
   }
+
+  checkout() {
+    console.log("The relevant items in the cart: ", JSON.stringify(this.cartService.cartItems()));
+    console.log("The customer ID: ", this.selectedCustomer.value);
+  }
 }
