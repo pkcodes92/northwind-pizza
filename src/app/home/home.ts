@@ -35,8 +35,6 @@ export class Home implements OnInit, OnDestroy {
       next: (response) => {
         this.pizzas = response.pizzas;
         this.isLoading.set(false);
-
-        console.log("Fetched pizzas:", this.pizzas);
       },
       error: (error) => {
         console.error("Error fetching pizzas:", error);
