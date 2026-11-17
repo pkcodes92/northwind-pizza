@@ -91,8 +91,9 @@
 }
 
 .cart-quantity button {
-    background-color: #f5f5f5;
+    background-color: var(--warm-cream);
     border-radius: 50%;
+    color: var(--tomato-red);
 }
 
 .cart-quantity span {
@@ -114,7 +115,7 @@
 
 .cart-item-subtotal p {
     font-size: 0.8rem;
-    color: #888;
+    color: var(--charcoal);
     margin: 0 0 5px;
 }
 
@@ -241,9 +242,34 @@
 Button colors
 =========================================== */
 .clear {
-    color: var(--pizza-red);
+    color: var(--tomato-red);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.clear:hover {
+    background-color: var(--dark-tomato);
+    color: var(--warm-cream);
+    transform: translateY(-5px);
 }
 
 .checkout {
-    color: var(--success);
+    color: var(--tomato-red);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.checkout:hover {
+    background-color: var(--dark-tomato);
+    color: var(--warm-cream);
+    transform: translateY(-5px);
+}
+
+.remove {
+    color: var(--tomato-red);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.remove:hover {
+    background-color: var(--dark-tomato);
+    color: var(--warm-cream);
+    transform: translateY(-5px);
 }

@@ -2,16 +2,16 @@ import { Component, inject, OnDestroy, OnInit, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Subscription } from "rxjs";
 
-import { PizzaService } from "../services/pizza.service";
+import { CartService, PizzaService } from "../services";
 import { Pizza } from "../dto/models";
 
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-import { CartService } from "../services";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @Component({
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule],
   selector: "app-home",
   styleUrl: "./home.css",
   templateUrl: "./home.html",

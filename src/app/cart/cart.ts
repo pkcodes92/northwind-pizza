@@ -1,18 +1,18 @@
 import { CurrencyPipe } from "@angular/common";
 import { Component, inject, OnInit } from "@angular/core";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
+import { map, Subscription } from "rxjs";
 
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-
-import { CartService, OrderService } from "../services";
-import { CartItem, Customer } from "../dto/models";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
-import { FormControl, ReactiveFormsModule } from "@angular/forms";
-import { map, Subscription } from "rxjs";
-import { CustomerService } from "../services/customer.service";
-import { CreateOrderRequest } from "../dto/request";
+import { MatTooltipModule } from "@angular/material/tooltip";
+
+import { CartItem, Customer } from "../dto/models";
 import { ErrorResponse } from "../dto/response";
+import { CartService, OrderService, CustomerService } from "../services";
+import { CreateOrderRequest } from "../dto/request";
 
 @Component({
   imports: [
@@ -22,6 +22,7 @@ import { ErrorResponse } from "../dto/response";
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatTooltipModule,
   ],
   selector: "app-cart",
   styleUrls: ["./cart.css"],

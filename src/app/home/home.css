@@ -76,6 +76,17 @@
     color: var(--pizza-red);
 }
 
+.cart-add-btn {
+    color: var(--tomato-red);
+    transition: transform 0.25s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.cart-add-btn:hover{
+    background-color: var(--dark-tomato) !important;
+    color: white;
+    transform: translateY(-5px);
+}
+
 @media (max-width: 600px) {
     .menu-container {
         padding: 16px;

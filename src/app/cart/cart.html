@@ -42,7 +42,9 @@
             </strong>
         </div>
     
-        <button mat-button color="warn" (click)="removeItem(item)">Remove</button>
+        <button mat-icon-button (click)="removeItem(item)" class="remove" matTooltip="Remove from the cart">
+            <mat-icon>delete</mat-icon>
+        </button>
     </section>
     }
     
@@ -50,11 +52,11 @@
         <h2>Total: {{ cartService.totalPrice() | currency:"USD" }}</h2>
         
         <div class="cart-actions">
-            <button mat-icon-button (click)="clearCart()" class="clear">
+            <button mat-icon-button (click)="clearCart()" class="clear" matTooltip="Clear the cart">
                 <mat-icon>clear</mat-icon>
             </button>
             
-            <button mat-icon-button (click)="checkout()" class="checkout">
+            <button mat-icon-button (click)="checkout()" class="checkout" matTooltip="Checkout">
                 <mat-icon>shopping_cart_checkout</mat-icon>
             </button>
         </div>

@@ -11,11 +11,18 @@
 
 .cart-action {
     margin-inline-start: auto;
-    color: white;
+    color: var(--warm-cream);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.cart-action:hover {
+    background-color: var(--dark-tomato);
+    color: var(--warm-cream);
+    transform: translateY(-2px);
 }
 
 .menu {
-    color: white !important;
+    color: var(--warm-cream) !important;
 }
 
 .menu:hover {
