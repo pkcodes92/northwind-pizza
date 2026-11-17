@@ -1,1 +1,69 @@
-<p>under-development works!</p>
+<div class="development-container">
+
+    <div class="development-card">
+
+        <!-- Decorative background elements -->
+        <div class="background-decoration decoration-one"></div>
+        <div class="background-decoration decoration-two"></div>
+
+        <!-- Status indicator -->
+        <div class="status-label">
+            <span class="status-dot"></span>
+            {{ eyebrow }}
+        </div>
+
+        <!-- Main illustration -->
+        <div class="illustration">
+
+            <div class="illustration-circle">
+                <div class="pizza-emoji">🍕</div>
+            </div>
+
+            <div class="floating-icon icon-one">🔧</div>
+            <div class="floating-icon icon-two">✨</div>
+            <div class="floating-icon icon-three">👨‍🍳</div>
+
+        </div>
+
+        <!-- Content -->
+        <div class="development-content">
+
+            <h1>{{ title }}</h1>
+
+            <p class="description">
+                {{ description }}
+            </p>
+
+            <!-- Optional progress indicator -->
+            @if (showProgress) {
+            <div class="progress-section">
+            
+                <div class="progress-header">
+                    <span>{{ progressLabel }}</span>
+                    <span class="progress-percentage">
+                        {{ normalizedProgress }}%
+                    </span>
+                </div>
+            
+                <div class="progress-track" role="progressbar" [attr.aria-valuenow]="normalizedProgress" aria-valuemin="0"
+                    aria-valuemax="100" [attr.aria-label]="progressLabel">
+            
+                    <div class="progress-fill" [style.width.%]="normalizedProgress">
+                    </div>
+            
+                </div>
+            
+            </div>
+            }
+
+            <!-- Footer message -->
+            <div class="development-footer">
+                <span class="footer-icon">♥</span>
+                Made with care at Northwind Pizza
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
