@@ -32,6 +32,8 @@ interface NavigationItem {
 export class App {
   protected readonly navigationItems: NavigationItem[] = [
     { label: "Home", route: "/home", icon: "home" },
+    { label: "Orders", route: "/orders", icon: "list" },
+    { label: "Admin", route: "/admin", icon: "admin_panel_settings" },
   ];
 
   protected drawerMode: "over" | "side" = "side";

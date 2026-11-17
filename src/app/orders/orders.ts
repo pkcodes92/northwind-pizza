@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { UnderDevelopment } from "../shared/under-development/under-development";
 
 @Component({
-  imports: [],
+  imports: [UnderDevelopment],
   selector: "app-orders",
   styleUrls: ["./orders.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
