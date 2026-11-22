@@ -36,3 +36,8 @@
     max-width: 320px;
     font-weight: 500;
 }
+
+.loading-image {
+    height: 320px;
+    width: 320px;
+}
