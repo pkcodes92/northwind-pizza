@@ -6,6 +6,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { Header } from "./shared/header/header";
+import { Loading } from "./shared/loading/loading";
 
 interface NavigationItem {
   label: string;
@@ -24,6 +25,7 @@ interface NavigationItem {
     MatButtonModule,
     MatListModule,
     Header,
+    Loading,
   ],
   selector: "app-root",
   styleUrls: ["./app.css"],
