@@ -24,6 +24,7 @@
 
   <mat-sidenav-content>
     <app-header [drawerOpened]="drawerOpened" (menuToggle)="sidenav.toggle()" />
+    <app-loading message="Please wait while we fetch data..."/>
 
     <main class="shell__main">
       <router-outlet />

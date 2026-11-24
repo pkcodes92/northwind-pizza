@@ -1,10 +1,4 @@
 <div class="menu-container">
-    @if (isLoading()) {
-        <div class="status-message">
-            <p>Loading deliciousness...</p>
-        </div>
-    }
-
     @if (errorMessage()) {
         <div class="status-message error">
             <p>{{ errorMessage() }}</p>
@@ -22,7 +16,7 @@
     </div>
 
     <div class="pizza-grid">
-        @if (pizzas.length > 0 && !isLoading()) {
+        @if (pizzas.length > 0) {
             @for(pizza of pizzas; track pizza.id) {
                 <mat-card class="pizza-card">
                     <img mat-card-image [src]="pizza.image" class="pizza-image" [alt]="pizza.name" />

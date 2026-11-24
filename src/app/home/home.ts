@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit, signal } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { Subscription } from "rxjs";
+import { finalize, Subscription } from "rxjs";
 
 import { CartService, PizzaService } from "../services";
 import { Pizza } from "../dto/models";
@@ -18,31 +18,28 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 })
 export class Home implements OnInit, OnDestroy {
   private readonly pizzaService = inject(PizzaService);
-
   private readonly cartService = inject(CartService);
 
   private getPizzasSubscription!: Subscription;
 
-  isLoading = signal(false);
   errorMessage = signal("");
+  isLoading = signal(true);
 
   pizzas: Pizza[] = [];
 
   ngOnInit(): void {
-    this.isLoading.set(true);
-
-    this.getPizzasSubscription = this.pizzaService.getPizzas().subscribe({
-      next: (response) => {
-        this.pizzas = response.pizzas;
-        this.isLoading.set(false);
-      },
-      error: (error) => {
-        console.error("Error fetching pizzas:", error);
-        this.errorMessage.set(error.message || "An error occurred while fetching pizzas.");
-        this.isLoading.set(false);
-      },
-      complete: () => this.isLoading.set(false),
-    });
+    this.getPizzasSubscription = this.pizzaService
+      .getPizzas()
+      .pipe(finalize(() => this.isLoading.set(false)))
+      .subscribe({
+        next: (response) => {
+          this.pizzas = response.pizzas;
+        },
+        error: (error) => {
+          console.error("Error fetching pizzas:", error);
+          this.errorMessage.set(error.message || "An error occurred while fetching pizzas.");
+        },
+      });
   }
 
   ngOnDestroy(): void {
